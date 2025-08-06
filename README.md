@@ -133,7 +133,7 @@ The `demo-todo-app.spec.ts` demonstrates:
 
 ## 📋 Available Scripts
 
-Add these scripts to your `package.json`:
+The project includes convenient npm scripts for common testing tasks:
 
 ```json
 {
@@ -146,6 +146,28 @@ Add these scripts to your `package.json`:
     "install-browsers": "playwright install"
   }
 }
+```
+
+### Quick Commands
+
+```bash
+# Run all tests
+npm test
+
+# Run tests with browser UI visible
+npm run test:headed
+
+# Run tests in debug mode
+npm run test:debug
+
+# Open Playwright UI for interactive testing
+npm run test:ui
+
+# View test reports
+npm run report
+
+# Install Playwright browsers
+npm run install-browsers
 ```
 
 ## 🔧 Configuration

@@ -1,4 +1,4 @@
-# OpenAPI Spec Playwright
+# Playwright Demo
 
 A comprehensive testing framework that combines Playwright for browser automation with custom utilities for API testing against OpenAPI specifications.
 
@@ -15,12 +15,14 @@ This project provides a robust foundation for testing both web applications and 
 
 ```
 openapi-spec-playwright/
-├── tests/                    # Test files
-│   └── demo-todo-app.spec.ts # Example TodoMVC test suite
-├── api-docs/                 # OpenAPI documentation
-├── ai-docs/                  # AI-generated documentation
+├── tests/                     # Test files
+├── tests-examples/            # Test files examples
+│   └── demo-todo-app.spec.ts  # Example TodoMVC test suite
+├── api-docs/                 # OpenAPI documentation (ready for use)
+├── ai-docs/                  # AI-generated documentation (ready for use)
 ├── playwright.config.ts      # Playwright configuration
 ├── package.json             # Dependencies and scripts
+├── Taskfile.yaml            # Task management with Task
 ├── curlHelper.ts            # API debugging utilities
 ├── responseAsserts.ts       # Type-safe response validation
 └── wrapper.ts               # Request wrapper with logging
@@ -32,6 +34,7 @@ openapi-spec-playwright/
 
 - Node.js (v16 or higher)
 - npm or yarn
+- Task (optional, for enhanced task management)
 
 ### Installation
 
@@ -49,6 +52,7 @@ npx playwright install
 
 ### Running Tests
 
+#### Using npm scripts:
 ```bash
 # Run all tests
 npx playwright test
@@ -61,6 +65,27 @@ npx playwright test --project=chromium
 
 # Run tests with debug mode
 npx playwright test --debug
+```
+
+#### Using Task (recommended):
+```bash
+# Run all tests
+task test
+
+# Run tests with browser UI visible
+task test:headed
+
+# Run tests in debug mode
+task test:debug
+
+# Open Playwright UI for interactive testing
+task test:ui
+
+# View test reports
+task report
+
+# Install Playwright browsers
+task install-browsers
 ```
 
 ## 🛠️ Core Components
@@ -170,12 +195,53 @@ npm run report
 npm run install-browsers
 ```
 
+## 🎯 Task Management
+
+The project includes a `Taskfile.yaml` for enhanced task management using [Task](https://taskfile.dev/). This provides a consistent interface for common development tasks:
+
+### Task Commands
+
+```bash
+# Run all tests
+task test
+
+# Run tests with browser UI visible
+task test:headed
+
+# Run tests in debug mode
+task test:debug
+
+# Open Playwright UI for interactive testing
+task test:ui
+
+# View test reports
+task report
+
+# Install Playwright browsers
+task install-browsers
+```
+
+### Installing Task
+
+```bash
+# macOS
+brew install go-task
+
+# Linux
+sh -c "$(curl --location https://taskfile.dev/install.sh)" -- -d -b ~/.local/bin
+
+# Windows
+scoop install task
+```
+
 ## 🔧 Configuration
 
 ### Playwright Configuration
 
 The `playwright.config.ts` includes:
+
 - Test directory: `./tests`
+- Test examples directory: `./tests-examples`
 - Parallel execution enabled
 - HTML reporter
 - Trace collection on retry

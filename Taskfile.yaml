@@ -1,0 +1,26 @@
+version: '3'
+tasks:
+  test:
+    desc: Run all Playwright tests
+    cmds:
+      - npm run test
+  test:headed:
+    desc: Run Playwright tests with browser UI visible
+    cmds:
+      - npm run test:headed
+  test:debug:
+    desc: Run Playwright tests in debug mode
+    cmds:
+      - npm run test:debug
+  test:ui:
+    desc: Open Playwright UI for interactive testing
+    cmds:
+      - npm run test:ui
+  report:
+    desc: View Playwright test reports
+    cmds:
+      - npm run report
+  install-browsers:
+    desc: Install Playwright browsers
+    cmds:
+      - npm run install-browsers

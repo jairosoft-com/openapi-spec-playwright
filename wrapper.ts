@@ -18,7 +18,7 @@ export async function sendRequest<F extends GenericFunction>(
     const curl = new CurlHelper(response.config);
     console.log("Request", curl.generateCommand());
     console.log("Response", JSON.stringify(response.data));
-    return response as ReturnType<F>;
+    return response;
   } catch (error) {
     assert(error instanceof AxiosError);
     if (error.config) {

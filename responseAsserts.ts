@@ -1,7 +1,7 @@
 import { AxiosError, AxiosResponse } from "axios";
 
 export function isAxiosErrorResponse<T>(
-  response: AxiosError | AxiosResponse<T>
+  response: unknown
 ): asserts response is AxiosError & { response: AxiosResponse } {
   if (
     !(response instanceof Error) ||
@@ -17,7 +17,7 @@ export function isAxiosErrorResponse<T>(
 }
 
 export function isAxiosResponse<T>(
-  response: AxiosError | AxiosResponse<T>
+  response: unknown
 ): asserts response is AxiosResponse<T> {
   if (
     typeof response === "object" &&

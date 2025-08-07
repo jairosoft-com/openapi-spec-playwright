@@ -24,3 +24,15 @@ tasks:
     desc: Install Playwright browsers
     cmds:
       - npm run install-browsers
+  mock:start:
+    desc: Start Prism mock server
+    cmds:
+      - npm run mock:start
+  mock:start:dynamic:
+    desc: Start Prism mock server with dynamic responses
+    cmds:
+      - npm run mock:start:dynamic
+  mock:validate:
+    desc: Validate OpenAPI specification
+    cmds:
+      - npm run mock:validate

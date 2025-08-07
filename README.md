@@ -90,7 +90,56 @@ task install-browsers
 
 ## 🛠️ Core Components
 
-### 1. API Testing Utilities
+### 1. API Testing with Prism Mock Server
+
+The project includes **Prism** for creating mock servers from OpenAPI specifications:
+
+#### **Starting the Mock Server**
+
+```bash
+# Start Prism mock server
+npm run mock:start
+
+# Start with dynamic responses
+npm run mock:start:dynamic
+
+# Validate OpenAPI specification
+npm run mock:validate
+```
+
+#### **Using Task Commands**
+
+```bash
+# Start mock server
+task mock:start
+
+# Start with dynamic responses
+task mock:start:dynamic
+
+# Validate specification
+task mock:validate
+```
+
+#### **OpenAPI Specification**
+
+The project includes a comprehensive OpenAPI specification at `api-docs/openapi.yaml` with:
+- **User management** endpoints (CRUD operations)
+- **Todo management** endpoints (CRUD operations)
+- **Authentication** with JWT bearer tokens
+- **Error handling** with proper status codes
+- **Pagination** support for list endpoints
+
+#### **Running API Tests**
+
+```bash
+# Run API tests against mock server
+npm test tests/api-mock.spec.ts
+
+# Run with specific browser
+npm test tests/api-mock.spec.ts --project=chromium
+```
+
+### 2. API Testing Utilities
 
 #### `curlHelper.ts`
 Converts Axios requests to cURL commands for debugging:
